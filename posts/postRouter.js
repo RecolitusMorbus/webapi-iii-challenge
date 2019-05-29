@@ -1,7 +1,9 @@
 const express = 'express';
 
+/* MIDDLEWARE */
 const router = express.Router();
 
+/* ROUTES */
 router.get('/', (req, res) => {
 
 });
@@ -18,10 +20,13 @@ router.put('/:id', (req, res) => {
 
 });
 
-// custom middleware
-
+/* CUSTOM MIDDLEWARE */
 function validatePostId(req, res, next) {
-
+  if (!req.params.id) {
+    res.status(400).json({ message: 'Invalid post ID.' });
+  } else {
+    req.user = `${req.params.id}`;
+  };
 };
 
 module.exports = router;
