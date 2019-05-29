@@ -1,5 +1,7 @@
 const express = 'express';
 
+const Posts = require('./postDb');
+
 /* MIDDLEWARE */
 const router = express.Router();
 
